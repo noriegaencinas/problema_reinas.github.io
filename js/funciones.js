@@ -68,7 +68,6 @@ function colocarReina(celda) {
 
     //caso en el que SI hay reina en la celda
   } else {
-    celda.style = "background-image: none";
     var renglon = celda.parentElement.rowIndex;
     var columna = celda.cellIndex;
     
@@ -126,6 +125,7 @@ function colocarReina(celda) {
     }
     reinasPorColocar++;
     reinasColocadas--;
+    celda.style = "background-image: none";
   }
   document.getElementById("reinasColoca").innerHTML = "Reinas por colocar: " + reinasPorColocar;
   document.getElementById("reinasColoca1").innerHTML = "Reinas Colocadas: " + reinasColocadas;
@@ -219,6 +219,7 @@ function limpiar() {
     for (let j = 0; j < 8; j++) {
       var celda = tablero.rows[i].cells[j];
       celda.removeAttribute("style");
+      celda.setAttribute("onclick", "colocarReina(this)");
     }
   }
 } 
